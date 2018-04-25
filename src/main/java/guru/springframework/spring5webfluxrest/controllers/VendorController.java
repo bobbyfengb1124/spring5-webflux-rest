@@ -60,7 +60,8 @@ public class VendorController {
 		
 		Vendor foundVendor = vendorRepository.findById(id).block();
 		
-		if(foundVendor.getFirstName() != vendor.getFirstName() || foundVendor.getLastName() != foundVendor.getLastName()) {
+//		if(foundVendor.getFirstName().equals(vendor.getFirstName()) || foundVendor.getLastName().equals(foundVendor.getLastName())) {
+		if(!foundVendor.getFirstName().equals(vendor.getFirstName())|| !foundVendor.getLastName().equals(foundVendor.getLastName())) {
 			foundVendor.setFirstName(vendor.getFirstName());
 			foundVendor.setLastName(vendor.getLastName());
 			return vendorRepository.save(foundVendor);
